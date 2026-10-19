@@ -12,7 +12,9 @@
     "preview": "vite preview",
     "lint": "eslint",
     "format": "prettier --write . && eslint --fix",
-    "check": "prettier --check ."
+    "check": "prettier --check .",
+    "dev:convex": "convex dev",
+    "typecheck": "tsc -p convex"
   },
   "dependencies": {
     "@auth/core": "^0.41.3",
