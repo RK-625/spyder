@@ -2,17 +2,22 @@
 // of the database is entirely optional in Convex.
 // See https://docs.convex.dev/database/schemas.
 
+import { authTables } from "@convex-dev/auth/server";
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
 export default defineSchema(
   {
-    user: defineTable({
-      theme: v.union(v.literal("light"), v.literal("dark"), v.literal("auto")),
-      fieldTwo: v.object({
-        subFieldOne: v.array(v.number()),
-      }),
-    }),
+    ...authTables,
+      users: defineTable({
+        // fields the library expects (all optional)
+        email: v.optional(v.string()),
+        // your own field
+        theme: v.optional(
+          v.union(v.literal("light"), v.literal("dark"), v.literal("auto")),
+        ),
+      })
+        .index("email", ["email"])
   },
   // If you ever get an error about schema mismatch
   // between your data and your schema, and you cannot
