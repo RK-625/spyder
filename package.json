@@ -10,6 +10,8 @@
     "lint": "npm run typecheck && eslint . --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@auth/core": "^0.41.3",
+    "@convex-dev/auth": "^0.0.96",
     "convex": "^1.44.0"
   },
   "devDependencies": {

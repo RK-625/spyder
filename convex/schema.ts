@@ -7,8 +7,8 @@ import { v } from "convex/values";
 
 export default defineSchema(
   {
-    documents: defineTable({
-      fieldOne: v.string(),
+    user: defineTable({
+      theme: v.union(v.literal("light"), v.literal("dark"), v.literal("auto")),
       fieldTwo: v.object({
         subFieldOne: v.array(v.number()),
       }),
